@@ -1,3 +1,21 @@
 blog_homepage:
-    path:     /blog
+    path:     /hello
     defaults: { _controller: BlogBundle:Default:index }
+blog_accueil:
+    path:     /
+    defaults: { _controller: BlogBundle:Blog:index }
+blog_ajouter:
+    path:     /article/ajouter
+    defaults: { _controller: BlogBundle:Blog:ajouter }
+blog_voir:
+    path:     /article/voir/{$id}
+    defaults: { _controller: BlogBundle:Blog:voir }
+blog_modifier:
+    path:     /article/modifier/{$id}
+    defaults: { _controller: BlogBundle:Blog:madifier }
+blog_supprimer:
+    path:     /article/supprimer/{$id}
+    defaults: { _controller: BlogBundle:Blog:ajouter }
+blog_menu:
+    path:     /article/menu
+    defaults: { _controller: BlogBundle:Blog:menu }
