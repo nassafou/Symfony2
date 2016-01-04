@@ -1,0 +1,18 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+{% block sdz_body %}
+  {% for article in articles %}
+      {{ article.id }}<br>
+     titre: {{ article.titre }} <br>
+      {{ article.auteur }}<br>
+      {{ article.contenu }}
+  {% endfor %}
+  
+  <ul class="na">
+    <li><a {{ path('blog_modifier')}}>modifier</a></li>
+    <li><a {{ path('blog_supprimer')}}>supprimer</a></li>
+  </ul>
+{% endblock %}

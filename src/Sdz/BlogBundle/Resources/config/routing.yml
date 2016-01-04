@@ -2,20 +2,28 @@ blog_homepage:
     path:     /hello
     defaults: { _controller: BlogBundle:Default:index }
 blog_accueil:
-    path:     /
-    defaults: { _controller: BlogBundle:Blog:index }
+    path:     /{page}
+    defaults: { _controller: BlogBundle:Blog:index, page: 1 }
+    requirements:
+        id: \d*
 blog_ajouter:
     path:     /article/ajouter
     defaults: { _controller: BlogBundle:Blog:ajouter }
 blog_voir:
-    path:     /article/voir/{$id}
+    path:     /article/{id}
     defaults: { _controller: BlogBundle:Blog:voir }
+    requirements:
+        id: \d+
 blog_modifier:
-    path:     /article/modifier/{$id}
+    path:     /modifier/{$id}
     defaults: { _controller: BlogBundle:Blog:madifier }
+    requirements:
+        id: \d+
 blog_supprimer:
     path:     /article/supprimer/{$id}
-    defaults: { _controller: BlogBundle:Blog:ajouter }
+    defaults: { _controller: BlogBundle:Blog:supprimer }
+    requirements:
+        id: \d+
 blog_menu:
     path:     /article/menu
     defaults: { _controller: BlogBundle:Blog:menu }
