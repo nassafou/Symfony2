@@ -1,0 +1,23 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+{% block title %}
+{% endblock %}
+
+{% block sdz_body %}
+    <h2>Modifier un article </h2>
+    
+        {% include"BlogBundle:Blog:formulaire.html.twig" %}
+    
+    
+    <p>
+        Vous éditez un article déja existant,
+        ne le changez pas trop pour éviter aux membre de ne pas comprendre ce qui ce passe 
+        
+    </p>
+    <p>
+        <a href="{{ path('blog_voir', {'id': articles.id }) }}" class="btn">
+            <i class="icon-chevron-left">
+                Retour a l'article
+            </i>
+        </a>
+    </p>
+{% endblock %}

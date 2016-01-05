@@ -15,12 +15,12 @@ blog_voir:
     requirements:
         id: \d+
 blog_modifier:
-    path:     /modifier/{$id}
-    defaults: { _controller: BlogBundle:Blog:madifier }
+    path:     /modifier/{id}
+    defaults: { _controller: BlogBundle:Blog:modifier }
     requirements:
         id: \d+
 blog_supprimer:
-    path:     /article/supprimer/{$id}
+    path:     /article/supprimer/{id}
     defaults: { _controller: BlogBundle:Blog:supprimer }
     requirements:
         id: \d+

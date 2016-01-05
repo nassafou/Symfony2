@@ -52,26 +52,36 @@ class BlogController extends Controller
     public function voirAction($id)
     {
       $articles = array(
-        array(
+        
                        'id' => 1,
                        'titre' => 'week-end',
                        'auteur' => 'YOZ',
-                       'contenu' => 'bla bla '));    
+                       'contenu' => 'bla bla',
+                       'date' => new \DateTime());    
     
-        return $this->render('BlogBundle:Blog:voir.html.twig', array( 'articles' => $articles ));
+        return $this->render('BlogBundle:Blog:voir.html.twig', array( 'article' => $articles ));
         
     }
     public function modifierAction($id)
     {
         // on recupere l'article correspondant a l'id
-        $article = $this->getRepository('BlogBundle:Entity:Article', array( 'id'=> $id ));
+       // $article = $this->getRepository('BlogBundle:Entity:Article', array( 'id'=> $id ));
         
         // Ici, on s'occupera de la creation et la gestion du formulaire
         
         // On recupère notre parametre tag
-        $tag = $request->query->get('tag');
+        //$tag = $request->query->get('tag');
         
-        return $this->render('BlogBundle:Blog:modifier.html.twig', array('articles'=> $this->createView()));
+        $articles = array(
+        
+                       'id' => 1,
+                       'titre' => 'week-end',
+                       'auteur' => 'YOZ',
+                       'contenu' => 'bla bla',
+                       'date' => new \DateTime());
+        
+        return $this->render('BlogBundle:Blog:modifier.html.twig', array('articles'=> $articles,
+                                                                         'id' => $id));
         
     }
     public function supprimerAction($id)
@@ -83,15 +93,18 @@ class BlogController extends Controller
         return $this->render('BlogBundle:Blog:supprimer.html.twig', array('id' => $id ));
         
     }
-    public function menuAction()
+    public function menuAction($nombre) // Ici, nouvel argument $nombre, on l'a transmis via le render() depuis la vue  
     {
         //on fixe en dur une liste ici, normalement recuperable de la BD
+        // On pourra récuperer $nombre articles depuis la BD
+        // avec $nombre un parametre qu'on peut changer lorsqu'on appelle cette action 
         
         $liste = array(
                        array( 'id'=>2, 'titre'=>'Week-end'),
                        array('id' =>5, 'titre'=>'Sortie de symfony2.1'),
                        array('id'=> 6, 'titre'=> 'Petit')
                        );
-       return $this->render('BlogBundle:Blog:menu.html.twig', array( 'liste_articles' => $liste )) ;
+       return $this->render('BlogBundle:Blog:menu.html.twig', array( 'liste_articles' => $liste,
+                                                                    'nombres' => $nombre)) ;
     }
 }

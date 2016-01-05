@@ -1,14 +1,18 @@
-{% extends '::base.html.twig'%}
+{% extends '::base.html.twig' %}
 {% block title %}
-   bienvenue
+   Blog-{{ parent() }}
 {% endblock %}
 
 
     
     {% block body%}
-        {% block sdz_body%}
-            
-     {% endblock %}
+        {# On definit un sous-titre commun à toutes les pages du bundle#}
+        <h1>Blog</h1>
+        
+        <hr>
+        {# On definit un nouveau bloc, que les vues du bundle pourront remplir #}
+        {% block sdz_body%}   
+        {% endblock %}
 
 
     {% endblock%}

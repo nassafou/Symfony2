@@ -1,18 +1,28 @@
 {% extends 'BlogBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }}
+    Lecture d'un article - {{ parent() }}
 {% endblock %}
 {% block sdz_body %}
-  {% for article in articles %}
-      {{ article.id }}<br>
-     titre: {{ article.titre }} <br>
-      {{ article.auteur }}<br>
-      {{ article.contenu }}
-  {% endfor %}
-  
-  <ul class="na">
-    <li><a {{ path('blog_modifier')}}>modifier</a></li>
-    <li><a {{ path('blog_supprimer')}}>supprimer</a></li>
-  </ul>
+    <h2>{{ article.titre }}</h2>
+    <i>Par {{ article.auteur }}, le {{ article.date | date('d/m/Y') }}</i>
+    
+    <div class="well">
+        {{ article.contenu }}
+    </div>
+     
+      
+
+  <p>
+    <a href="{{ path('blog_accueil') }}" class="btn">
+        <i class="icon-chevron-left">Retour à la liste</i>
+        
+    </a>
+    <a href="{{ path('blog_modifier', {'id': article.id })}}" class="btn">
+        <i class="icon-edit">Modifier l'article </i>  
+    </a>
+     <a href="{{ path('blog_supprimer', {'id': article.id }) }}" class="btn">
+        <i class="icon-chevron-left"> Supprimer l'article  </i>
+     </a>
+  </p>
 {% endblock %}
