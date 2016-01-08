@@ -3,7 +3,7 @@ namespace Sdz\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-
+use Sdz\BlogBundle\Entity\Article;
 class BlogController extends Controller
 {
     public function indexAction($page)
@@ -32,34 +32,54 @@ class BlogController extends Controller
     }
     public function ajouterAction()
     {
+         // creation de l'entité
+         $article = new Article();
+         $article->setTitre('Mon dernier Week-end');
+         $article->setAuteur('YOZ');
+         $article->setContenu("C'était vraiment super"); 
+         
+         // on ne peut pas définir ni la date ni  la publication car ils sont définis dans le constructeur
+         
+         //On recupere l'entity manager
+         $em = $this->getDoctrine()->getManager();
+         
+         //Etape 1 on persiste l'entité
+         $em->persist($article);
+         // Etape 2 on flush l' entité
+         $em->flush();
         //La gestion d'un formulaire est particuliere
         
-        if( $this->getResquest()->getMethod() == 'POST')
+        if( $this->getRequest()->getMethod() == 'POST')
         {
             //ici on s occupera de la creation du formulaire
-            $this->get('session')->getFlashBag()->add('notice', 'Article ');
+            $this->get('session')->getFlashBag()->add('info', 'Article  bien enregistré');
        // puis on redirige vers la page de visualisation de cet article
-       return $this->redirect( $this->generateUrl('blog_voir', array('id' => 6)));
-       
-            
-        }
+       return $this->redirect( $this->generateUrl('blog_voir', array('id' => $article->getId())));
+       }
         
-       
-    
-       return $this->render('BlogBundle:Blog:ajouter.html.twig', array('articles' => $article));
+       return $this->render('BlogBundle:Blog:ajouter.html.twig');
     
     }
     public function voirAction($id)
     {
-      $articles = array(
-        
-                       'id' => 1,
-                       'titre' => 'week-end',
-                       'auteur' => 'YOZ',
-                       'contenu' => 'bla bla',
-                       'date' => new \DateTime());    
+      // on crée l'entité
+      
+      $em = $this->getDoctrine()->getManager();
+      // crée le repository
+      $repository = $em->getRepository('BlogBundle:Article');
+                         
+      //on recupere                  
+      $article = $repository->find($id);
+      // $article est donc une instance de Sdz\BlogBundle\Entity\Article
+      
+      // Ou null si aucun article n'a été trouvé avec l'id $id
+      
+      if( $article === null )
+      {
+        throw $this->createNotFoundException('Article[id='.$id.'] inexistant');
+      }
     
-        return $this->render('BlogBundle:Blog:voir.html.twig', array( 'article' => $articles ));
+        return $this->render('BlogBundle:Blog:voir.html.twig', array( 'article' => $article ));
         
     }
     public function modifierAction($id)

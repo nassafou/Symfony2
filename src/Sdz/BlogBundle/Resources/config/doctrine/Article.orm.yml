@@ -1,0 +1,14 @@
+Sdz\BlogBundle\Entity\Article:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        ddd:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
