@@ -1,0 +1,53 @@
+
+
+
+
+
+
+ Alors: {{ template | upper }}<br />
+ 2 : {{ template1 | length  }} <br />
+ 3 : {{ template2 }}<br />
+ 
+ {% filter escape   %}
+     Je vais être <em> écris </em> en majuscule <br />
+    Moi <strong>aussi</strong>  {{ template1 }} {# le escape ne marche pas #}
+ {% endfilter %}
+ 
+ <p>
+    
+    
+    {% if x > 1 %}
+        
+        Il y a {{ x }} utilisateurs en ligne
+         
+    {% elseif  x == 1 %}
+        
+        Il y a {{ x }} qu'un utilisateur en ligne
+        
+        {% else   %}
+            
+             Il n'y a aucun utilisateur en ligne
+             
+        {% endif %}
+    
+ </p>
+ <p>
+    {% if x is empty %}
+        la varible est vide
+    {% else %}
+        elle n'est pas vide
+    {% endif %}
+ </p>
+ 
+ <p>
+    {% for i in 0..50  %}
+        Ceci est la ligne {{ i }}
+        {% endfor %}
+ </p>
+ <p>
+    {% for lettre in 'a'..'z' if x > 7 %}
+        la lettre {{ lettre }} est la lettre numéro {{ loop.index }} de l'alphabet.<br />
+    {% endfor %}
+ </p>
+ 
+ 

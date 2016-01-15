@@ -6,6 +6,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Sdz\BlogBundle\Entity\Article;
 class BlogController extends Controller
 {
+    public function templateAction()
+    {
+        array(
+        $template= "Voici mon premier template",
+        $template1= " le deuxième on va  ",
+        $template2= "Le troisième ",
+        $template3 = 8,
+        
+        );
+        
+        return $this->render('BlogBundle:Blog:template.html.twig', array('template' => $template,
+                                                                          'template1' => $template1,
+                                                                          'template2' => $template2,
+                                                                          'x'=> $template3 ) );
+    }
     public function indexAction($page)
     {
         //On ne sait pas combien de page il y a

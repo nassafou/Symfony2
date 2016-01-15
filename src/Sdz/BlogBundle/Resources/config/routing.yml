@@ -27,3 +27,7 @@ blog_supprimer:
 blog_menu:
     path:     /article/menu
     defaults: { _controller: BlogBundle:Blog:menu }
+
+blog_template:
+    path:     /article/template
+    defaults: { _controller: BlogBundle:Blog:template }
