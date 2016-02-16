@@ -1,3 +1,7 @@
+demo:
+    resource: "@DemoBundle/Resources/config/routing.yml"
+    prefix:   /acme
+
 test:
     resource: "@TestBundle/Resources/config/routing.yml"
     prefix:   /
