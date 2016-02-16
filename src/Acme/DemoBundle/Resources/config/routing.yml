@@ -1,7 +1,11 @@
-demo_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DemoBundle:Default:index }
+#demo_homepage:
+ #   path:     /hello/{name}
+  #  defaults: { _controller: DemoBundle:Default:index }
 
 contact:
     path:     /contact
     defaults: { _controller: DemoBundle:Main:contact }
+
+hello:
+    path:     /hello/{name}
+    defaults: { _controller: DemoBundle:Main:hello}
