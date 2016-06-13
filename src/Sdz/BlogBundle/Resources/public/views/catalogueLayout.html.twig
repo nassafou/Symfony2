@@ -1,0 +1,26 @@
+{% extends '::catalogue/layout/layout.html.twig' %}
+{% block title %}
+   Catalogue-{{ parent() }}
+{% endblock %}
+
+
+    
+    {% block body %}
+        {# On definit un sous-titre commun à toutes les pages du bundle#}
+        <h1>Ecran catalogue</h1>
+        <div>
+            <table>
+                <tr>
+                    <tbody>
+                        <th>Filter</th>
+                    </tbody>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        {# On definit un nouveau bloc, que les vues du bundle pourront remplir #}
+        {% block sdz_body%}   
+        {% endblock %}
+
+
+    {% endblock%}

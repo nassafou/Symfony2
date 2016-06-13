@@ -1,0 +1,49 @@
+{% extends '::catalogue/layout/BaseLayout.html.twig' %}
+{% block title %}
+   Catalogue-{{ parent() }}
+{% endblock %}
+
+
+    {% block body %}
+       
+       <style type="text/css">
+    body{background-color: #DDD; }
+</style>
+       
+        {# On definit un sous-titre commun à toutes les pages du bundle#}
+          <hr>
+        <table >
+    <tr>
+   <ul>
+       <div class="row">
+        <div class="col-xs-4">  
+        <h3> Filter</h3>
+              <ul>
+               <li> <input type="radio" name="Tag1"> Tag1</input></li>
+                <li><input type="radio" name="Tag2"> Tag2</input></li>
+                <li><input type="radio" name="Tag3"> Tag3</input></li>
+              </ul>
+        </div>
+        <div class="col-xs-4">
+                <h3> Tri par :</h3>
+                <ul>
+                <li><input type="radio" name="Tag1"> Prix</input></li>
+                <li><input type="radio" name="Tag2"> Poids</input></li>
+                 <button type="submit"> GO </button>
+                </ul>
+        </div>
+        <div class="col-xs-4">
+                <input  name="Tag1" value="recherche" />
+                 <button type="submit"> OK </button>
+        </p></div>
+    </div>
+      </ul>
+    </tr>
+    
+    </table>   
+    
+        <hr>
+        {# On definit un nouveau bloc, que les vues du bundle pourront remplir #}
+        {% block catalogue_body%}   
+        {% endblock %}
+    {% endblock%}

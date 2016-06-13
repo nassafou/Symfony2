@@ -31,3 +31,24 @@ blog_menu:
 blog_template:
     path:     /article/template
     defaults: { _controller: BlogBundle:Blog:template }
+
+blog_test:
+    path:     /test
+    defaults: { _controller: BlogBundle:Test:test }
+
+blog_name:
+    path:     /name/
+    defaults: { _controller: BlogBundle:Blog:exo }
+
+blog_catalogue:
+    path:     /produits/
+    defaults: { _controller: BlogBundle:Catalogue:produits }
+
+blog_catalogueMenu:
+    path:     /produits/menu
+    defaults: { _controller: BlogBundle:Catalogue:menu }
+
+blog_cataloguePrestation:
+    path:     /produits/presentation/{id}
+    defaults: { _controller: BlogBundle:Catalogue:presentation }
+

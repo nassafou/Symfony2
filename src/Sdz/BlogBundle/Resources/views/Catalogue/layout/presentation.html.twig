@@ -1,0 +1,58 @@
+{% extends  "BlogBundle::catalogueLayout.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+  <br />
+  <br />
+<div>
+    <p>Iphone</p>
+</div>
+<table>
+    <ul>
+       <div class="row">
+        <div class="col-xs-4"><img src="" alt="image1" width="370" height="300"></div>
+        <div class="col-xs-8">
+            <div class="span2">
+    <h3>Description du produit</h3>
+    <div>
+        {% if id == 1%}
+        {% for produit in produit1 %}
+        <ul>
+            <li>Poids: {{ produit.poids }}</li>
+            <li>prix TTC : {{ produit.prix }}</li>
+        </ul>
+    {% endfor %}
+{% elseif id == 2  %}
+    {% for produit in produit2 %}
+        <ul>
+            <li>Poids: {{ produit.poids }}</li>
+            <li>prix TTC : {{ produit.prix }}</li>
+        </ul>
+    {% endfor %}
+{% else %}
+    {% for produit in produit3 %}
+        <ul>
+            <li>Poids: {{ produit.poids }}</li>
+            <li>prix TTC : {{ produit.prix }}</li>
+        </ul>
+    {% endfor %}
+{% endif %}
+    
+    </div>
+    <div>
+        <h3>Categories attachées:</h3>
+        <ul>
+            <li>categorie 1</li>
+            <li>categorie 2</li>
+        </ul>
+    </div>
+</div>
+        </div>
+    </div>
+      </ul>
+</table>
+
+
+
+{% endblock %}

@@ -4,6 +4,7 @@ namespace Sdz\BlogBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sdz\BlogBundle\Entity\Article;
+
 class BlogController extends Controller
 {
     public function templateAction()
@@ -13,7 +14,6 @@ class BlogController extends Controller
         $template1= " le deuxième on va  ",
         $template2= "Le troisième ",
         $template3 = 8,
-        
         );
         
         return $this->render('BlogBundle:Blog:template.html.twig', array('template' => $template,
@@ -45,6 +45,7 @@ class BlogController extends Controller
                              'date'=> new \DateTime()));
         return $this->render('BlogBundle:Blog:index.html.twig', array('articles' => $liste ) );
     }
+    
     public function ajouterAction()
     {
          // creation de l'entité
@@ -108,7 +109,6 @@ class BlogController extends Controller
         //$tag = $request->query->get('tag');
         
         $articles = array(
-        
                        'id' => 1,
                        'titre' => 'week-end',
                        'auteur' => 'YOZ',
@@ -116,8 +116,7 @@ class BlogController extends Controller
                        'date' => new \DateTime());
         
         return $this->render('BlogBundle:Blog:modifier.html.twig', array('articles'=> $articles,
-                                                                         'id' => $id));
-        
+                                                                         'id'      => $id));
     }
     public function supprimerAction($id)
     {
@@ -140,6 +139,23 @@ class BlogController extends Controller
                        array('id'=> 6, 'titre'=> 'Petit')
                        );
        return $this->render('BlogBundle:Blog:menu.html.twig', array( 'liste_articles' => $liste,
-                                                                    'nombres' => $nombre)) ;
+                                                                     'nombres' => $nombre)) ;
+    }
+    
+    public function exoAction()
+    {
+        $name = 'abalo';
+        $club  = array(
+                      array('id' => 1,   'nom'=>'kader', 'club'=>'marseille1'),
+                      array('id' => 2,    'nom'=>'ade',  'club'=>'paris'));
+       
+       //$joueur = array('nom' => $noms,'equipe' => $equipe);
+        $noms  = 'youssouf, patrice, maya ';
+        $equipes = 'toulouse, marseille, colombes ';
+        // $club = array( 'joueur' => $nom,'e'); #}
+      return $this->render('BlogBundle:Blog:exo.html.twig', array( 'online' => $name,
+                                                                    'club'  => $club
+                                                                   ));
+                                                                       
     }
 }

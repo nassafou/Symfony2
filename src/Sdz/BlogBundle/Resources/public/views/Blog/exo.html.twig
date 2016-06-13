@@ -1,0 +1,48 @@
+{% extends '::catalogue/layout/layout.html.twig' %}
+
+{% block title %}
+    Accueil -{{ parent() }}
+{% endblock%}
+{% block sdz_body %}
+        
+        {% filter upper %}
+            Je vais être écrit en majuscule
+            {{ online }}
+    {% endfilter %}
+    {% filter upper|escape %}
+        Je vais être écrit en majuscule <em> et échapé </em>
+ {% endfilter %}
+        <hr>
+        {% if online > 1 %}
+            Il y a {{ online }} membres en ligne
+        {% elseif online == 1 %}
+            Il n'y a qu'un seul utilisateur en ligne (Vous !)
+        {% else %}
+            Il n'y a aucun utilisteur en ligne. Cette phrase ne  sera, en principe, jamais lue sauf par toi. 
+            
+        {% endif %}
+        <hr>
+        
+        {% if session.pseudo is defined %}
+            Votre pseudo est {{ session.psudo }}.
+        {% else %}
+            n'existe pas 
+        {% endif %}
+        
+        <hr>
+        {% for joueur in club    %}
+            Le joueur {{ joueur.nom }} joue dans l'équipe {{ joueur.club }} <br />
+        {% endfor %}
+        <hr>
+        {% set var = "val" %}
+         {{ var }}
+         <hr>
+         {% set mascotte, os = 'beastie', 'bsd' %}
+         {{ mascotte }}
+         <hr>
+         {% include 'BlogBundle:Blog:menu.html.twig' %}
+         <hr>
+         {% include "BlogBundle:Blog:formulaire.html.twig" %}
+ {% endblock %}
+
+

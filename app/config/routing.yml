@@ -10,6 +10,10 @@ blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /blog
 
+catalogue:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /catalogue
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

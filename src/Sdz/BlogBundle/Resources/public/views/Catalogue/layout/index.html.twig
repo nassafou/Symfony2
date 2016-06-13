@@ -1,0 +1,17 @@
+{% extends '::catalogue/layout/layout.html.twig' %}
+
+{% block title %}
+    Accueil -{{ parent() }}
+{% endblock%}
+{% block sdz_body %}
+       
+       {{ text }} 
+        
+       
+         <hr>
+         {% include 'BlogBundle:Blog:menu.html.twig' %}
+         <hr>
+         {% include "BlogBundle:Blog:formulaire.html.twig" %}
+ {% endblock %}
+
+
