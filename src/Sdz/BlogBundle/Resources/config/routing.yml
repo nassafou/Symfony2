@@ -52,3 +52,7 @@ blog_cataloguePrestation:
     path:     /produits/presentation/{id}
     defaults: { _controller: BlogBundle:Catalogue:presentation }
 
+blog_catalogueCategories:
+    path:     /produits/categories/{id}
+    defaults: { _controller: BlogBundle:Catalogue:categories }
+

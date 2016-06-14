@@ -71,4 +71,16 @@ class CatalogueController extends Controller
                                                                                          ));
     }
     
+    
+     public function categoriesAction()
+    {
+        $categories = array(
+                            array('id' => 1, 'nom' => 'tablette'),
+                            array('id' => 2,  'nom' => 'telephone')
+                            
+                            );
+        
+        return $this->render('BlogBundle:Catalogue:layout/categories.html.twig', array('categorie' => $categories ));
+    }
+    
 }

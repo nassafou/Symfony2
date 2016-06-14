@@ -23,14 +23,14 @@
             <li>prix TTC : {{ produit.prix }}</li>
         </ul>
     {% endfor %}
-{% elseif id == 2  %}
+  {% elseif id == 2  %}
     {% for produit in produit2 %}
         <ul>
             <li>Poids: {{ produit.poids }}</li>
             <li>prix TTC : {{ produit.prix }}</li>
         </ul>
     {% endfor %}
-{% else %}
+  {% else %}
     {% for produit in produit3 %}
         <ul>
             <li>Poids: {{ produit.poids }}</li>
