@@ -72,15 +72,22 @@ class CatalogueController extends Controller
     }
     
     
-     public function categoriesAction()
+     public function categoriesAction($id)
     {
-        $categories = array(
+        $categorie1 = array(
                             array('id' => 1, 'nom' => 'tablette'),
-                            array('id' => 2,  'nom' => 'telephone')
+                        
+                            
+                            );
+        $categorie2 = array(
+                            
+                             array('id' => 2,  'nom' => 'telephone')
                             
                             );
         
-        return $this->render('BlogBundle:Catalogue:layout/categories.html.twig', array('categorie' => $categories ));
+        return $this->render('BlogBundle:Catalogue:layout/categories.html.twig', array('categorie1' => $categorie1,
+                                                                                       'categorie2' => $categorie2,
+                                                                                       'id'         => $id ));
     }
     
 }

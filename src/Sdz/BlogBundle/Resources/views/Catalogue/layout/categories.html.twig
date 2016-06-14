@@ -1,0 +1,23 @@
+{% extends  "BlogBundle::catalogueLayout.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+{% if id == 1 %}
+{% for categorie in categorie1 %}
+    <ul>
+    {{categorie.nom  }}
+    </ul>
+{% endfor %}
+{% else %}
+    {% for categorie in categorie2 %}
+        <ul>
+    {{categorie.nom  }}
+    </ul>
+{% endfor %}
+{% endif %}
+
+    </div>
+</div>
+{% endblock %}
