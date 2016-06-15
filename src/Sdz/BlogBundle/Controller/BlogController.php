@@ -48,23 +48,16 @@ class BlogController extends Controller
     
     public function ajouterAction()
     {
-         // creation de l'entité
-         $article = new Article();
+         
+         $article = new Article();// creation de l'entité
          $article->setTitre('Mon dernier Week-end');
          $article->setAuteur('YOZ');
          $article->setContenu("C'était vraiment super"); 
-         
          // on ne peut pas définir ni la date ni  la publication car ils sont définis dans le constructeur
-         
-         //On recupere l'entity manager
-         $em = $this->getDoctrine()->getManager();
-         
-         //Etape 1 on persiste l'entité
-         $em->persist($article);
-         // Etape 2 on flush l' entité
-         $em->flush();
+         $em = $this->getDoctrine()->getManager();//On recupere l'entity manager
+         $em->persist($article); //Etape 1 on persiste l'entité
+         $em->flush();         // Etape 2 on flush l' entité
         //La gestion d'un formulaire est particuliere
-        
         if( $this->getRequest()->getMethod() == 'POST')
         {
             //ici on s occupera de la creation du formulaire

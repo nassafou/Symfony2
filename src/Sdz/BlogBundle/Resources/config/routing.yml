@@ -56,3 +56,10 @@ blog_catalogueCategories:
     path:     /produits/categories/{id}
     defaults: { _controller: BlogBundle:Catalogue:categories }
 
+blog_produitvoir:
+    path:     /produits/voir/{id}
+    defaults: { _controller: BlogBundle:Catalogue:voir }
+
+blog_produitCreer:
+    path:     /produits/creer
+    defaults: { _controller: BlogBundle:Catalogue:creer }

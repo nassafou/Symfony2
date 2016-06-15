@@ -1,0 +1,14 @@
+{% extends 'BlogBundle::catalogueLayout.html.twig' %}
+
+{% block title %}
+    Accueil -{{ parent() }}
+{% endblock%}
+{% block catalogue_body %}
+ 
+
+<div class="well">
+    <form method="post"  {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input  type="submit" class="btn btn-primary"/>
+    </form>
+{% endblock %}
