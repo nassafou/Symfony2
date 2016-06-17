@@ -1,0 +1,71 @@
+{% extends "::Interface/layout/baseInterface.html.twig"%}
+{% block body %}
+<div class="container">
+    <table>
+        <tr>
+    <div class="row">
+        <div class="col-xs-4">
+                        <a href="{{ path('blog_interfacePresentation', {'id' : 1 } ) }}" class="thumbnail">
+            <img class="media-object" src="#" alt="Image1" width="50" height="200"/>
+                        </a>
+        </div>
+        <div class="col-xs-4">Description du produit 1, Tag1, Tag2 </div>
+        <div class="col-xs-4">
+            20 euros    15 kg<br />
+            <a href="{{ path('blog_interfacePresentation', {'id' : 1 } ) }}">En savoir plus</a>
+        </div>
+      </div>
+        </tr><br />
+    <tr>
+    <div class="row">
+        <div class="col-xs-4">
+            <a href="#" class="thumbnail">
+            <img  src="" alt="Image1" width="50" height="50"/>
+            </a>
+        </div>
+        <div class="col-xs-4">Description du produit 2, Tag3 </div>
+        <div class="col-xs-4">
+            15 euros    10 kg<br />
+            <a href="{{ path('blog_interfacePresentation', {'id': 2 })}}">En savoir plus</a>
+        </div>
+      </div>
+    </tr>
+    
+    <tr><br />
+    <div class="row">
+        <div class="col-xs-4">
+                        <a href="#" class="thumbnail">
+            <img  src="#" alt="Image1" width="50" height="50"/>
+                        </a>
+        </div>
+        <div class="col-xs-4">Description du produit 3, Tag1, Tag2 </div>
+        <div class="col-xs-4">
+            10 euros    9 kg<br />
+            <a href="#">En savoir plus</a>
+        </div>
+      </div><br />
+    </tr>
+    </table>
+    <hr>
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-4"> </div>
+        <div class="col-xs-4">
+        
+        <ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+

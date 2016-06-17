@@ -71,26 +71,19 @@ class BlogController extends Controller
     }
     public function voirAction($id)
     {
-      // on crée l'entité
       
-      $em = $this->getDoctrine()->getManager();
-      // crée le repository
-      $repository = $em->getRepository('BlogBundle:Article');
-                         
-      //on recupere                  
-      $article = $repository->find($id);
+      
+      $em = $this->getDoctrine()->getManager();// on crée l'entité
+      $repository = $em->getRepository('BlogBundle:Article');// crée le repository
+      $article = $repository->find($id); //on recupere  
       // $article est donc une instance de Sdz\BlogBundle\Entity\Article
-      
       // Ou null si aucun article n'a été trouvé avec l'id $id
-      
-      if( $article === null )
-      {
+      if( $article === null ){
         throw $this->createNotFoundException('Article[id='.$id.'] inexistant');
       }
-    
         return $this->render('BlogBundle:Blog:voir.html.twig', array( 'article' => $article ));
-        
     }
+    
     public function modifierAction($id)
     {
         // on recupere l'article correspondant a l'id

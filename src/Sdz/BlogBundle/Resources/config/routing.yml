@@ -63,3 +63,16 @@ blog_produitvoir:
 blog_produitCreer:
     path:     /produits/creer
     defaults: { _controller: BlogBundle:Catalogue:creer }
+
+blog_interfaceIndex:
+    path:     /interface/
+    defaults: { _controller: BlogBundle:Interface:index }
+
+blog_interfacePresentation:
+    path:     /interface/presentation/{id}
+    defaults: { _controller: BlogBundle:Interface:presentation }
+    
+blog_interfaceAjouter:
+    path:     /interface/ajouter
+    defaults: { _controller: BlogBundle:Interface:ajouter }
+    

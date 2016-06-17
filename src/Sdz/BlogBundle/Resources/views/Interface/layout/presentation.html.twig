@@ -1,0 +1,32 @@
+{% extends "::Interface/layout/baseInterface.html.twig"%}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+        <img src="#" alt="image"   width="370"  height="270"/>
+        </div>
+        <div class="col-xs-4">  
+            {% if 'id' == 1 %}
+            {% for phone in  iphone1 %}
+            <h3>Description du produit</h3>
+            <p>Poids : {{ phone.poids }} kg</p>
+            <p>Prix TTC: {{ phone.prix }} Euros</p>
+        {% endfor %}
+    {% else %}
+        {% for phone in  iphone2 %}
+            <h3>Description du produit</h3>
+            <p>Poids : {{ phone.poids }} kg</p>
+            <p>Prix TTC: {{ phone.prix }} Euros</p>
+        {% endfor %}
+    {% endif %}
+        </div>
+        <div class="col-xs-4">
+        
+        <h3>Catégories</h3>
+        attachées:
+        <p>Catégorie 1</p>
+        <p>Catégorie 2</p>
+        </div>
+    </div>
+{% endblock %}

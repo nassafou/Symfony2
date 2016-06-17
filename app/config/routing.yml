@@ -14,6 +14,10 @@ catalogue:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /catalogue
 
+interface:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /interface
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
