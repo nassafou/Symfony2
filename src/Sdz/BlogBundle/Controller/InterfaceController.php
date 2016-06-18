@@ -52,8 +52,8 @@ class InterfaceController extends Controller
   
   public function bootAction()
   {
-     $test = "here";
+     //$test = "here";
     
-     return $this->render('BlogBundle:Interface:layout/boot.html.twig', array('test' => $test )); 
+     return $this->render('BlogBundle:Interface:layout/boot.html.twig'); 
   }
 }
