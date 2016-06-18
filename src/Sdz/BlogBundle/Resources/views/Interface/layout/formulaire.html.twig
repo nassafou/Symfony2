@@ -1,1 +1,8 @@
-{{form(form)}}
+
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }} {# Les erreurs générales du formulaire #}
+{{ form_widget(form) }}
+<input type="submit" class="btn btn-primary" />
+    </form>
+</div>

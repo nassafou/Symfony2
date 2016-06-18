@@ -41,12 +41,19 @@ class InterfaceController extends Controller
     $formBuilder = $this->createFormBuilder($interface);//On crée le FormBuilder grâce à la methode du controleur
     $formBuilder// On ajout les champs de l'entité que l'on veut à notre formulaire
       ->add('nom', 'text')
-      ->add('description', 'text')
+      ->add('description', 'textarea')
       ->add('prix', 'integer')
       ->add('poids', 'integer');
       
       $form = $formBuilder->getForm();// A partir du formBuilder, on génere le formulaire
       
     return $this->render('BlogBundle:Interface:layout/ajouter.html.twig', array('form' => $form->createView() ));// On passe la méthode createView() du formulaire à la vue afin qu'elle puisse afficher le formulaire toute seule
+  }
+  
+  public function bootAction()
+  {
+     $test = "here";
+    
+     return $this->render('BlogBundle:Interface:layout/boot.html.twig', array('test' => $test )); 
   }
 }
