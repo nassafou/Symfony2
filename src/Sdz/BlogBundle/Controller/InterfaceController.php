@@ -28,40 +28,25 @@ class InterfaceController extends Controller
     
   public function presentationAction($id)
   {
-     $iphone1 =  array(array("id" => 1,
-                           "poids" => 15,
-                           "prix"  => 20 ));
-     
-     $iphone2 = array(
-                     array("id" => 2,
-                           "poids" => 20,
-                           "prix"  => 9 ));
+    $iphone1 =  array(array("id" => 1,"poids" => 15,"prix"  => 20 ));
+    $iphone2 = array(array("id" => 2, "poids" => 20,"prix"  => 9 ));
     return $this->render('BlogBundle:Interface:layout/presentation.html.twig', array('iphone' => $iphone1,
                                                                                      'iphone2' => $iphone2,
                                                                                      'id '  => $id));
   }
   
-  
   public function ajouterAction()
   {
-    
-             $interface = new Interface1();
-         $form    = $this->createForm(new InterfaceType, $interface ); // on crée le formulaire par rapport ProduitType
-    $request = $this->get('request'); // on recupere la requete
-         if($request->getMethod() == 'POST')// on verifei si c'est une requete post
-         {
-            $form->bind($request);//On relie la requet et formulaire
-            if($form->isValid()) // On verifie que les valeurs entrées sont correct
-            {
-                $em = $this->getDoctrine()->getManager();// on enregistre les produit
-                $em->persist($interface);
-                $em->flush();
-                
-                $this->get('session')->getFlashBag()->add('info', 'Produit bien ajouté'); // on defini un message flush
-                return $this->redirect($this->generateUrl('blog_voirProduit', array('id' => $interface->getId())));
-            }
-         }
-     
-    return $this->render('BlogBundle:Interface:layout/ajouter.html.twig', array('form' => $form->createView() ));
+    $interface = new Interface1(); // on crée un objet article
+    $formBuilder = $this->createFormBuilder($interface);//On crée le FormBuilder grâce à la methode du controleur
+    $formBuilder// On ajout les champs de l'entité que l'on veut à notre formulaire
+      ->add('nom', 'text')
+      ->add('description', 'text')
+      ->add('prix', 'integer')
+      ->add('poids', 'integer');
+      
+      $form = $formBuilder->getForm();// A partir du formBuilder, on génere le formulaire
+      
+    return $this->render('BlogBundle:Interface:layout/ajouter.html.twig', array('form' => $form->createView() ));// On passe la méthode createView() du formulaire à la vue afin qu'elle puisse afficher le formulaire toute seule
   }
 }
