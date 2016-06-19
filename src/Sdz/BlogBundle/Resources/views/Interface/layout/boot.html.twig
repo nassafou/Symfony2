@@ -17,30 +17,58 @@
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-     
-    <![endif]-->
+   
   </head>
 
   <body>
-
+ 
    
+
+ {% set page = { title: 'About',
+                 subtitle: 'About Mijingo',
+                 slug: 'about'}
+ %}
+
+{{ page.title }}
+
+<hr>
+
+{% set nav={
+     about: { title: "The Brewery", desc: "About Us"},
+     services: { title: "How It's Made", desc: "Services"},
+     work: { title: "What's on Tap", desc: "Our Work" },
+     news: { title: "Brew New", desc: "The Latest"},
+}%}
+
+{{ nav.about.title }}
+
+<hr>
+<nav>
+    <ul>
+        {% for item in nav %}
+            <li>{{ item.title }}</li>
+        {% endfor %}
+    </ul>
+</nav>
+<hr>
+
+<nav>
+    
+    <ul>
+        {% for slug, item in nav %}
+            <li><a href="/{{ slug }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+
+<hr>
+
+
+
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     
-   <div class="dropdown">
-  <a data-toggle="dropdown" href="#">Dropdown trigger</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><a href="http://yahoo.com" class="well">Youssouf</a></li>
-    <li><a href="#">Kadi</a></li>
-    <li><a href="#">Gino</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-  </ul>
-</div>
+  
 
    {% block body %}
        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
