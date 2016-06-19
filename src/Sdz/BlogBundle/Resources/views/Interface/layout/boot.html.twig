@@ -24,25 +24,7 @@
  
    
 
- {% set page = { title: 'About',
-                 subtitle: 'About Mijingo',
-                 slug: 'about'}
- %}
 
-{{ page.title }}
-
-<hr>
-
-{% set nav={
-     about: { title: "The Brewery", desc: "About Us"},
-     services: { title: "How It's Made", desc: "Services"},
-     work: { title: "What's on Tap", desc: "Our Work" },
-     news: { title: "Brew New", desc: "The Latest"},
-}%}
-
-{{ nav.about.title }}
-
-<hr>
 <nav>
     <ul>
         {% for item in nav %}
@@ -61,20 +43,6 @@
     </ul>
 </nav>
 
-<hr>
-<ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
-</ul>
-
-<hr>
-<form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
 
 <hr>
 <div class="well well-lg">
